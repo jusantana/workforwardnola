@@ -6,6 +6,8 @@
     </div>
   </footer>
 
+  <section id="opp-form">
+    <section class="no-print">
     <h1>Job System Sign-up Form</h1>
    <form method="post" action="/contact" onsubmit="alert('Thank you for submitting!')">
      <strong>Whats your name? *</strong>
@@ -15,7 +17,7 @@
       <input type="text" name="first_name" required>
      <input type="text" name="last_name" required>
 
-    <div style="float: right; padding-right:1cm;">
+    <div style="float: right; padding-right:1cm">
        <select name="referral" required>
        <option hidden dissabled> </option>
        <option value ="Through an online search">Through an online search</option>
@@ -33,21 +35,20 @@
       <hr>
      <h2>We're going to ask a couple of questions to figure out which
      Opportunity Center is the best match for you</h2>
-    <section id="opp-form">
      <strong>Which of these apply to you? *</strong> </br> </br>
      <div id="attributes">
-       <input type="checkbox" id="young" name="young_adult" value="true" onclick="opportunityCenter()">I am between the ages of 18-24</br>
-       <input type="checkbox" id="veteran" name="veteran" value="true" onclick="opportunityCenter()">I am a Veteran</br>
-       <input type="checkbox" id="no_transportation" name="no_transportation" value="true" onclick="opportunityCenter()">I don't always have a way to get to and from work</br>
-       <input type="checkbox" id="homeless" name="homeless" value="true" onclick="opportunityCenter()">I am homeless or staying with someone temporarily</br>
-       <input type="checkbox" id="no_drivers_license" name="no_drivers_license" value="true" onclick="opportunityCenter()">I don't have a driver's license</br>
-       <input type="checkbox" id="no_state_id" name="no_state_id" value="true" onclick="opportunityCenter()">I don't have a state-issued I.D.</br>
-       <input type="checkbox" id="disabled" name="disabled" value="true" onclick="opportunityCenter()">I am disabled</br>
-       <input type="checkbox" id="childcare" name="childcare" value="true" onclick="opportunityCenter()">I need childcare</br>
-       <input type="checkbox" id ="criminal" name="criminal" value="true" onclick="opportunityCenter()">I have an open criminal chargee</br>
-       <input type="checkbox" id="previously_incarcerated" name="previously_incarcerated" value="true" onclick="opportunityCenter()"> I have been previously incarcerated</br>
-       <input type="checkbox" id="using_drugs" name="using_drugs" value="true" onclick="opportunityCenter()">I am using drugs and want to get help</br>
-       <input type="checkbox" id="none" name="none" value="true">None of these apply to me</br> </br>
+       <input type="checkbox" id="young" name="young_adult" value="true" onclick="opportunityCenter(young_adult)">I am between the ages of 18-24</br>
+       <input type="checkbox" id="veteran" name="veteran" value="true" onclick="opportunityCenter(veteran)">I am a Veteran</br>
+       <input type="checkbox" id="no_transportation" name="no_transportation" value="true" onclick="opportunityCenter(no_transportation);">I don't always have a way to get to and from work</br>
+       <input type="checkbox" id="homeless" name="homeless" value="true" onclick="opportunityCenter(homeless)">I am homeless or staying with someone temporarily</br>
+       <input type="checkbox" id="no_drivers_license" name="no_drivers_license" value="true" onclick="opportunityCenter(no_drivers_license)">I don't have a driver's license</br>
+       <input type="checkbox" id="no_state_id" name="no_state_id" value="true" onclick="opportunityCenter(no_state_id)">I don't have a state-issued I.D.</br>
+       <input type="checkbox" id="disabled" name="disabled" value="true" onclick="opportunityCenter(disabled)">I am disabled</br>
+       <input type="checkbox" id="childcare" name="childcare" value="true" onclick="opportunityCenter(childcare)">I need childcare</br>
+       <input type="checkbox" id ="criminal" name="criminal" value="true" onclick="opportunityCenter(criminal)">I have an open criminal charge</br>
+       <input type="checkbox" id="previously_incarcerated" name="previously_incarcerated" value="true" onclick="opportunityCenter(previously_incarcerated)">I have been previously incarcerated</br>
+       <input type="checkbox" id="using_drugs" name="using_drugs" value="true" onclick="opportunityCenter(using_drugs)">I am using drugs and want to get help</br> 
+       <input type="checkbox" id="none" name="none" value="true" onclick="opportunityCenter(none)">None of these apply to me</br> </br>
      </div>
        <strong>Which neighborhood is closest to where you live? *</strong> </br> </br>
      <select name="neighborhood" required>
@@ -59,15 +60,16 @@
        <option value="none">None of the above</option>
      </select>
      <hr>
+   </section>
      <h2>Visit one of the the following Opportunity Center(s) to find out
      how they can help you work towards a career.</h2>
      <div id="opportunity_center">
-       <p>Please answer the questions above to be
-          matched with an Opportunity Center.</p>
+         <!--Content added by the method opportunityCenter() -->
      </div>
      </section>
+     <section class="no-print">
      <div id="print-oppurtunity-centers">
-      <p><strong><input type="submit" value="Print Opportunity Centers" onclick="printOpportunityCenter();"></strong></p>
+      <p><a href="javascript:window.print()" data-event-category="Jobsystem" data-event-action="Print"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Print or Save as PDF</a></p>
      </div>
      <hr>
      <h2>Now that you know where to go, add your contact information so that
@@ -88,6 +90,8 @@
    </form>
   </div>
 </section>
+</section>
+<section class="no-print">
 <section>
   <div class="centered">
     <h2>Take your next step</h2>
@@ -115,27 +119,16 @@
         </ul>
       </div>
     </section>
-<section>
+  </section>
+<section class="no-print">
   <div class="centered">
     <h2>Opportunity Center Map</h2>
     <p>Click on a pin below to see the open hours, address, phone number and website for each Opportunity Center.</p>
     <p><strong><span class="link"><a href="/opportunity-center-info" title="Text-only Opportunity Center information">You can also see a text-only version of this information.</a></span></strong></p>
-    <div id="map_canvas" style="float: left;"></div>
+    <div id="map_canvas"></div>
 
 
     <script>
-
-
-    var x = document.getElementById("attributes");
-    var y = x.getElementsByTagName("input");
-
-    for (var i = 0, len = y.length; i < len; i++) {
-      if ( y[i].type == "checkbox" ) {
-        y[i].onclick = function() {
-          opportunityCenter();
-        }
-      }
-    }
 
     function addEmail() {
       document.getElementById("email_submission_spot").style = "display: inline;";
@@ -182,130 +175,28 @@
     if(document.getElementById("phone_submission_spot").hasAttribute("required")){
     document.getElementById("phone_submission_spot").removeAttribute("required");
     }
-
-
-    }
-
-    function opportunityCenter() {
-      document.getElementById("opportunity_center").innerHTML = "test";
-    }
-
-    function printOpportunityCenter() {
-      window.print();
-    }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKNLU54D_sMOyuyzqGxS2dYUU00GoF1fA"></script>
-    <script>
-    var bittersMap = (function() {
-      var locations = [
-        ['Goodwill and Job1', 29.94711, -90.09446,
-        '<div id="content">' +
-        '<div id="siteNotice">' +
-        '</div>' +
-        '<h2>Goodwill</h2>' +
-        '<div id="bodyContent">' +
-        '<p>Mon-Fri, 8AM - 5PM</p>' +
-        '<p>3400 Tulane Ave, 1st Floor, New Orleans, LA 70119</p>' +
-        '<p><a href="https://goo.gl/maps/U52rdrdnvaE2" target="_blank" title="Goodwill address in Google Maps">Open in Google Maps</a></p>' +
-        '<p><a href="tel:+5044563933">(504) 456-3933</a></p>' +
-        '<p><a href="http://goodwillno.org/" target="_blank" title="Goodwill Website">Visit the website</a></p>' +
-        '</div>' +
-        '<br />' +
-        '<h2>Job1</h2>' +
-        '<div id="bodyContent">' +
-        '<p>Mon-Fri, 8AM - 5PM</p>' +
-        '<p>3400 Tulane Ave, 2nd Floor, New Orleans, LA 70119</p>' +
-        '<p><a href="https://goo.gl/maps/U52rdrdnvaE2" target="_blank" title="Job1 address in Google Maps">Open in Google Maps</a></p>' +
-        '<p><a href="tel:+5046584500">(504) 658-4500</a></p>' +
-        '<p><a href="http://www.nola.gov/economic-development/workforce-development/job1/" target="_blank" title="Job1 Website">Visit the website</a></p>' +
-        '</div>' +
-        '</div>'],
-        ['STRIVE', 29.95091, -90.07738,
-        '<div id="content">' +
-        '<div id="siteNotice">' +
-        '</div>' +
-        '<h2>STRIVE</h2>' +
-        '<div id="bodyContent">' +
-        '<p>Mon-Fri, 8AM - 5PM</p>' +
-        '<p>1340 Poydras St. Suite 100, New Orleans, LA 70112</p>' +
-        '<p><a href="https://goo.gl/maps/9mFVJg823aG2" target="_blank" title="STRIVE address in Google Maps">Open in Google Maps</a></p>' +
-        '<p><a href="tel:+5046584201">(504) 658-4201</a></p>' +
-        '<p><a href="http://striveinternational.org/" target="_blank" title="STRIVE International Website">Visit the website</a></p>' +
-        '</div>' +
-        '</div>'],
-        ['TCA', 29.95602, -90.10512,
-        '<div id="content">' +
-        '<div id="siteNotice">' +
-        '</div>' +
-        '<h2>Total Community Action</h2>' +
-        '<div id="bodyContent">' +
-        '<p>Mon-Fri, 8AM - 5PM</p>' +
-        '<p>1424 S. Jefferson Davis Parkway, New Orleans, LA 70125</p>' +
-        '<p><a href="https://goo.gl/maps/eq5h2oCM2f12" target="_blank" title="TCA address in Google Maps">Open in Google Maps</a></p>' +
-        '<p><a href="tel:+5048720334">(504) 872-0334</a></p>' +
-        '<p><a href="http://www.tca-nola.org/" target="_blank" title="TCA Website">Visit the website</a></p>' +
-        '</div>' +
-        '</div>'],
-        ['Urban League', 29.97723, -90.03875,
-        '<div id="content">' +
-        '<div id="siteNotice">' +
-        '</div>' +
-        '<h2>Urban League</h2>' +
-        '<div id="bodyContent">' +
-        '<p>Mon-Fri, 8AM - 5PM</p>' +
-        '<p>3232 North Galvez Street, New Orleans, LA 70117</p>' +
-        '<p><a href="https://goo.gl/maps/aWS8QZrKGYn" target="_blank" title="Urban League address in Google Maps">Open in Google Maps</a></p>' +
-        '<p><a href="tel:+5043244444">(504) 324-4444</a></p>' +
-        '<p><a href="http://www.urbanleagueneworleans.org/ul/" target="_blank" title="Urban League Website">Visit the website</a></p>' +
-        '</div>' +
-        '</div>']
-      ],
-      mapCenter = new google.maps.LatLng(29.97036, -90.07493),
-      mapCanvas = document.getElementById('map_canvas'),
-      mapOptions = {
-        zoom: 13,
-        center: new google.maps.LatLng(0, 0),
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      },
-      map = new google.maps.Map(mapCanvas, mapOptions),
-      infowindow = new google.maps.InfoWindow(),
-      bounds = new google.maps.LatLngBounds(),
-      marker, i;
-      for (i = 0; i < locations.length; i++) {
-        var myLatLng = new google.maps.LatLng(locations[i][1], locations[i][2]);
-        marker = new google.maps.Marker({
-          position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-          map: map
-        });
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-          return function() {
-            infowindow.setContent(locations[i][3]);
-            infowindow.open(map, marker);
+  }
+    
+    function opportunityCenter(input) {
+        if (input.id == "homeless" || input.id == "disabled") {
+          if (document.getElementById("opportunity_center").innerHTML.indexOf('Carey') <= -1) {
+              document.getElementById("opportunity_center").innerHTML +=
+                  "<p>Total Community Action (TCA)</br>1420 South Jeff Davis Pkwy New Orleans, La 70125</br>(504) 872-0334</br>James Cary</br>Email: James.Carey@tca-NOLA.org</br>Sidney Monroe</br>Email: Sidney.Monroe@tca-nola.org</p>";
           }
-        })(marker, i));
-        bounds.extend(myLatLng);
-      };
-      map.fitBounds(bounds);
-      return {
-        init: function() {
-          map.set('styles', [{
-            featureType: 'landscape',
-            elementType: 'geometry',
-            stylers: [{
-              hue: '#ffff00'
-            }, {
-              saturation: 30
-            }, {
-              lightness: 10
-            }]
-          }]);
-
+        } else if (input.id == "criminal" || input.id == "previously_incarcerated") {
+          if (document.getElementById("opportunity_center").innerHTML.indexOf('Boudoin') <= -1) {
+              document.getElementById("opportunity_center").innerHTML +=
+                  "<p>Goodwill Industries</br>3400 Tulane Avenue New Orleans</br>Jada Boudoin</br>Telephone: (504) 456-3933</br>Email: jboudoin@goodwillno.org</p>";      
+          }
+        } else {
+          if (document.getElementById("opportunity_center").innerHTML.indexOf('Tucker') <= -1) {
+              document.getElementById("opportunity_center").innerHTML +=
+                  "<p>JOB1 Business and Career Solutions Center</br> Cassandra Tucker, Administrative Data Specialist </br>3400 Tulane Avenue, New Orleans</br>(504) 658-4500 – Main </br>(504) 658-4571 – Direct </br> crtucker@nola.gov</p>";
+          }
         }
-      };
-    }());
-
-    bittersMap.init();
+      }
+      
+    
     </script>
   </div>
 </section>
-
