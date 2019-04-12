@@ -29,12 +29,6 @@ Setting up SES for Job System: `SENDER_EMAIL`, `OWNER_EMAIL`, `AWS_ACCESS`, `AWS
 
 Setting up S3: Configure `AWS_BUCKET` in `.env`
 
-## Debugging
-
-The Ruby Gem byebug is in the gemfile for development. For more info on byebug
-please see https://github.com/deivid-rodriguez/byebug.
-Important to make sure not to leave any byebug's while pushing any pr's.
-
 ## Job System Results
 
 There is additionally an optional feature to write to GoogleSsheets using a file `client_secret.json`. An example is included in `client_secret.json.example`. If you do not wish to use this feature, do not create or use `client_secret.json`! You can find information on the [google-drive-ruby](https://github.com/gimite/google-drive-ruby) GitHub.
