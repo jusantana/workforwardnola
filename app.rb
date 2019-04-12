@@ -7,6 +7,10 @@ require 'pony'
 require './emailprovider.rb'
 require 'aws-sdk-s3'
 require 'json'
+## required only for development
+configure :development do
+  require 'byebug'
+end
 
 module WorkForwardNola
   # WFN app

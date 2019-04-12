@@ -21,6 +21,7 @@ GEM
       aws-sdk-core (~> 3, >= 3.26.0)
       aws-sigv4 (~> 1.0)
     aws-sigv4 (1.0.3)
+    byebug (11.0.1)
     codecov (0.1.14)
       json
       simplecov
@@ -153,6 +154,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk-s3
   aws-sdk-ses
+  byebug
   codecov
   dotenv
   google_drive

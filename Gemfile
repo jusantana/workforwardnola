@@ -30,4 +30,5 @@ end
 
 group :development do
   gem 'rerun'
+  gem 'byebug'
 end

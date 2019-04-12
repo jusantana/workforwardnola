@@ -5,13 +5,13 @@
       <a href="http://www.nola.gov/" title="New Orleans City Government Website" target="_blank" class="nola-logo"><img alt="City of New Orleans Logo" src="assets/nola-logo.png"/></a>
     </div>
   </footer>
-  
+
   <p></p>
   <div class="button-wrapper center">
       <a href="/" data-event-category="JobSystem" data-event-action="Back to homepage" title="Return to home page" class="basic-button">Back to home page</a>
   </div>
-  
-  <form id="opp-form-element" method="post" action="/contact" enctype="multipart/form-data" onsubmit="alert('Thank you for submitting! You will shortly be redirected to the homepage.')">
+
+  <form id="opp-form-element" method="post" action="/contact" enctype="multipart/form-data" >
   <section id="opp-form">
     <section class="no-print">
     <h1>Job System Sign-up Form</h1>
@@ -31,7 +31,7 @@
       <option value="Community Group">Community Group</option>
       <option value="other">Other</option>
       </select>
-      
+
       <hr>
       <h2>We're going to ask a couple of questions to figure out which
      Opportunity Center is the best match for you</h2>
@@ -47,7 +47,7 @@
        <input type="checkbox" id="childcare" name="childcare" value="true" onclick="opportunityCenter(event)">I need childcare</br>
        <input type="checkbox" id ="criminal" name="criminal" value="true" onclick="opportunityCenter(event)">I have an open criminal charge</br>
        <input type="checkbox" id="previously_incarcerated" name="previously_incarcerated" value="true" onclick="opportunityCenter(event)">I have been previously incarcerated</br>
-       <input type="checkbox" id="using_drugs" name="using_drugs" value="true" onclick="opportunityCenter(event)">I am using drugs and want to get help</br> 
+       <input type="checkbox" id="using_drugs" name="using_drugs" value="true" onclick="opportunityCenter(event)">I am using drugs and want to get help</br>
        <input type="checkbox" id="none" name="none" value="true" onclick="opportunityCenter(event)">None of these apply to me</br> </br>
      </div>
        <strong>Which neighborhood is closest to where you live? *</strong> </br> </br>
@@ -72,18 +72,24 @@
     <div id="print-oppurtunity-centers">
       <p><a href="javascript:window.print()" data-event-category="Jobsystem" data-event-action="Print"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Print or Save as PDF</a></p>
     </div>
+
     <hr>
     <h2>Now that you know where to go, add your contact information so that
     we can follow up and answer any questions you may have.</h2></br>
+    <label>Mobile Phone:</label> <br />
+      <input id="text_submission_spot" placeholder="Please enter your phone number using numbers only." size="80" pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$" name="text_submission" type="tel"></br>
+<label>Phone:</label> <br />
+      <input id="phone_submission_spot" placeholder="Please enter your phone number using numbers only." size="80" pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$" name="phone_submission" type="tel"></br>
+      <label>Email:</label> <br />
+      <input id="email_submission_spot" name="email_submission" placeholder="Please enter your email." size="80" type="email"></br>
+
       <strong>What's the best way to contact you? *</strong></br>
-      <input id="email" type="radio" name="best_way" value="E-mail" onclick="addEmail()">E-mail</br>
-      <input id="email_submission_spot" name="email_submission" placeholder="Please enter your email." size="80" type="email" style="display:none;"></br>
-      <input type="radio" name="best_way" value="Phone call" onclick="addPhone()">Phone Call</br>
-      <input id="phone_submission_spot" placeholder="Please enter your phone number using numbers only." size="80" pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$" name="phone_submission" type="tel" style="display:none;"></br>
-      <input type="radio" name="best_way" value="Text Message" onclick="addText()">Text Message</br>
-      <input id="text_submission_spot" placeholder="Please enter your phone number using numbers only." size="80" pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$" name="text_submission" type="tel" style="display:none;"></br>
+      <input id="email" type="radio" name="best_way" value="E-mail">E-mail</br>
+      <input id="phone" type="radio" name="best_way" value="Phone call">Phone Call</br>
+      <input id="text" type="radio" name="best_way" value="Text Message">Text Message</br>
       <strong>If you have a resume, upload it here. </strong></br>
       <input type="file" name="resume"> </br></br>
+
       <div class="button-wrapper center">
         <input type="submit" class="basic-button" value="Submit application">
       </div>
@@ -128,50 +134,17 @@
     <div id="map_canvas"></div>
 
     <script>
-      function addEmail() {
-        document.getElementById("email_submission_spot").style = "display: inline;";
-        document.getElementById("text_submission_spot").style = "display: none;";
-        document.getElementById("phone_submission_spot").style = "display: none;";
-        document.getElementById("email_submission_spot").required = true;
 
-        if (document.getElementById("phone_submission_spot").hasAttribute("required")) {
-          document.getElementById("phone_submission_spot").removeAttribute("required");
-        }
+    $('#opp-form-element').submit( function () {
 
-        if (document.getElementById("text_submission_spot").hasAttribute("required")) {
-          document.getElementById("text_submission_spot").removeAttribute("required");
-        }
+      if ($('#text_submission_spot').val() == "" && $('#phone_submission_spot').val() == "" && $('#email_submission_spot').val() == ""){
+        alert('Please enter a contact method')
+        return false;
+      } else {
+        alert('Thank you for submitting! You will shortly be redirected to the homepage.')
       }
+    })
 
-      function addPhone() {
-        document.getElementById("phone_submission_spot").style = "display: inline;";
-        document.getElementById("email_submission_spot").style = "display: none;";
-        document.getElementById("text_submission_spot").style = "display: none;";
-        document.getElementById("phone_submission_spot").required = true;
-
-        if (document.getElementById("email_submission_spot").hasAttribute("required")) {
-          document.getElementById("email_submission_spot").removeAttribute("required");
-        }
-
-        if (document.getElementById("text_submission_spot").hasAttribute("required")) {
-          document.getElementById("text_submission_spot").removeAttribute("required");
-        }
-      }
-
-      function addText() {
-        document.getElementById("email_submission_spot").style = "display: none;";
-        document.getElementById("phone_submission_spot").style = "display: none;";
-        document.getElementById("text_submission_spot").style = "display: inline;";
-        document.getElementById("text_submission_spot").required = true;
-
-        if (document.getElementById("email_submission_spot").hasAttribute("required")) {
-          document.getElementById("email_submission_spot").removeAttribute("required");
-        }
-
-        if (document.getElementById("phone_submission_spot").hasAttribute("required")) {
-          document.getElementById("phone_submission_spot").removeAttribute("required");
-        }
-      }
      function opportunityCenter(event) {
         // event.preventDefault();
         var checkboxes = Array.from(document.getElementById("attributes").children)
@@ -222,7 +195,7 @@
           }
         }
         // update elements
-        document.getElementById("opportunity_center").innerHTML = display_content + form_inputs; 
+        document.getElementById("opportunity_center").innerHTML = display_content + form_inputs;
       }
     </script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKNLU54D_sMOyuyzqGxS2dYUU00GoF1fA"></script>

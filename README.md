@@ -29,7 +29,13 @@ Setting up SES for Job System: `SENDER_EMAIL`, `OWNER_EMAIL`, `AWS_ACCESS`, `AWS
 
 Setting up S3: Configure `AWS_BUCKET` in `.env`
 
-## Job System Results 
+## Debugging
+
+The Ruby Gem byebug is in the gemfile for development. For more info on byebug
+please see https://github.com/deivid-rodriguez/byebug.
+Important to make sure not to leave any byebug's while pushing any pr's.
+
+## Job System Results
 
 There is additionally an optional feature to write to GoogleSsheets using a file `client_secret.json`. An example is included in `client_secret.json.example`. If you do not wish to use this feature, do not create or use `client_secret.json`! You can find information on the [google-drive-ruby](https://github.com/gimite/google-drive-ruby) GitHub.
 This feature requires setting up a Google Service Account. You can find more information in [Google's documentation](https://cloud.google.com/iam/docs/service-accounts)
@@ -60,7 +66,7 @@ We are not AWS experts, so if you have recommendations to improve the following,
   * NOTE: When setting up authentication for the CLI tools (so that you can later run `eb init` or `eb deploy`), you'll want a the user with deployment credentials -- more permissions than the service user that you'll use to run the service itself (which will only need access to the S3 bucket, elastic beanstalk components, and RDS instance).
 3. Follow the Create an Application steps in [this documentation](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Ruby_sinatra.html#create_deploy_Ruby_eb_init).
   * For steps 5/6, select `Ruby` and `Ruby 2.5 (Puma)`
-  * NOTE: AWS config only works on specific versions of Ruby. We went with 2.5.3. 
+  * NOTE: AWS config only works on specific versions of Ruby. We went with 2.5.3.
   * SSH login is optional, but convenient
 4. At this point, you'll want to set up the DB. We created an integrated Postgres database instance (v. 9.5.2) as described in [here](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.db.html).
   * You will need to configure Amazon RDS. Create a database and use the information from the DB to connect (this is important to do first before you upload and deploy)
